@@ -1,0 +1,9 @@
+﻿@model PaginatedList<Sociable9.Models.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+    var admin = ViewData["Admin"] as bool? ?? false;
+    var user = ViewData["User"] as bool? ?? false;
+}
+
+<partial name="_ContactList" model="@Model" />

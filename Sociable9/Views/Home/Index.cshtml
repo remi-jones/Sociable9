@@ -1,0 +1,80 @@
+﻿@model PaginatedList<Sociable9.Models.Contact>
+
+@{
+    ViewData["Title"] = "Home Page";
+    var admin = ViewData["Admin"] as bool? ?? false;
+    var user = ViewData["User"] as bool? ?? false;
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Logo occupies 2 columns -->
+        <div class="col-md-2">
+            <img src="~/media/logo_t.png" alt="Logo" class="img-fluid"> <!-- Make sure to replace with your logo path -->
+        </div>
+        <div class="text-center col-md-10">
+            <h1>Welcome to Sociable</h1>
+            <p><strong>Effortlessly Manage Your Contacts, Anytime, Anywhere.</strong></p>
+
+            <p>
+                At Sociable, we understand the importance of staying connected. In today's fast-paced world,
+                keeping track of your personal and professional contacts can be a challenge. That's where
+                Sociable steps in - a contact manager designed to simplify and organize your connections.
+            </p>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div>
+        <h2>Our Objective</h2>
+        <p>
+            Our goal is simple yet profound: to provide an intuitive and seamless platform for managing
+            your contacts. Sociable is more than just a contact manager; it's a tool that empowers you
+            to nurture relationships.
+        </p>
+
+        <h3>Features:</h3>
+        <ul>
+            <li>
+                <strong>Create Contacts:</strong> Easily add new contacts with essential details. From
+                names and phone numbers to email addresses and postal codes, Sociable allows you to
+                capture all the information you need.
+            </li>
+            <li>
+                <strong>Organize Effortlessly:</strong> Sort and categorize your contacts for easy access.
+                Whether it’s personal, professional, or something in between, Sociable keeps your contacts
+                neatly organized.
+            </li>
+            <li>
+                <strong>Secure and Private:</strong> Your contacts are your business. We prioritize security
+                and privacy, ensuring your data is protected and confidential.
+            </li>
+            <li>
+                <strong>User-Friendly Interface:</strong> Sociable’s sleek and straightforward design makes
+                contact management a breeze. No clutter, no fuss – just a clean, easy-to-navigate experience.
+            </li>
+        </ul>
+
+        <p>
+            Whether you're networking, organizing personal connections, or just looking for a better way
+            to manage your phonebook, Sociable is here to help. Embrace the ease of staying connected with
+            Sociable - your go-to contact management solution.
+        </p>
+    </div>
+</div>
+@if (user)
+{   
+    <div class="text-center d-flex justify-content-center">
+        <br />
+        <br />
+        <a href="#contacts" class="btn btn-info btn-custom btn-vertical-center" style="height: 4rem !important;"><strong>Your contacts</strong></a>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+    <section id="contacts">
+        <partial name="_ContactList" model="@Model" />
+    </section>
+}

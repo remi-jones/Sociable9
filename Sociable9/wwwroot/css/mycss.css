@@ -1,0 +1,216 @@
+/* background for overall site */
+body {
+    background: linear-gradient(to right, #f5f5dc, #e6e6e1); /* From beige to light gray */
+}
+
+
+.card-custom, .card-custom .card-body {
+    transition: transform .3s, background-color .3s;
+    background-color: #dedddd !important;
+}
+
+.card-custom:hover .card-header, .card-custom:hover .card-footer {
+    transition: background-color .3s;
+    background-color: #495057 !important; /* Even darker header on hover */
+}
+
+.card-custom:hover .card-text, .card-custom:hover .card-title {
+    color: white;
+}
+
+.card-custom .card-header, .card-custom .card-footer {
+    background-color: #cac7c7 !important; /* Slightly darker grey for header */
+}
+
+.card-custom:hover .card-body {
+    background-color: #757272 !important;
+}
+
+
+.card-custom:hover {
+    transform: scale(1.05);
+    background-color: #cac7c7 !important; /* Dark grey on hover */
+    color: white;
+}
+
+
+
+.card-custom:hover .btn-info, .jumbo-btn .btn-info:hover {
+    background-color: #0DCAF0 !important;
+}
+
+.card-custom:hover .btn-danger, .jumbo-btn .btn-danger:hover {
+    background-color: #DC3545 !important;
+}
+
+.card-custom .btn, .jumbo-btn .btn {
+    background-color: #495057 !important; /* Button color change on hover */
+    color: white;
+}
+
+.btn-primary {
+    background-color: #495057 !important;
+}
+
+.btn-primary:hover {
+    background-color: #0D6EFD !important;
+}
+
+.btn-nav {
+    background-color: #F5F5DC !important;
+}
+
+.btn-nav:hover {
+    border: 1px solid black;
+}
+
+.btn-nav.active {
+    background-color: #495057 !important;
+}
+
+
+/* search button */
+.search-form {
+    display: flex !important;
+    height: 100% !important;
+}
+
+.search-form input, .search-form button {
+    flex-grow: 1 !important; /* Allows input and button to expand */
+}
+
+.search-form button {
+    min-width: 100px !important; /* Adjust as needed */
+}
+
+/* create new button */
+.btn-vertical-center {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important; /* Adjust as needed */
+}
+
+.sort-message {
+    padding-left: 10px !important; /* Adjust spacing as needed */
+    overflow: hidden !important;
+    white-space: normal !important; /* Allows text to wrap */
+}
+
+
+/* navbar */
+.navbar-custom {
+    background-color: #949090 !important; /* Example dark color, adjust as needed */
+}
+
+/* Navbar buttons with lighter background and dark text */
+.navbar-custom .nav-link {
+    background-color: #f8f9fa !important; /* Light background for buttons */
+    color: #343a40; /* Dark text */
+    transition: box-shadow 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+    border: 1px solid transparent; /* Border for inward shadow effect */
+    padding: .5rem 1rem; /* Adjust padding as needed */
+    margin-left: .3rem;
+    margin-right: .3rem;
+    text-shadow: 0 0 1px transparent; /* Reserve space for bold text */
+}
+
+/* Hover effects for navbar buttons */
+.navbar-custom .nav-link:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), inset 0 0 5px rgba(0, 0, 0, 0.8); /* Outer glow and inner shadow */
+    transform: translateY(-2px); /* Optional: slight upward lift */
+    font-weight: bold;
+    transition: font-weight .1s;
+    text-shadow: 0 0 1px #343a40; /* Match the text color */
+}
+
+.navbar-brand {
+    font-family: 'Lobster', cursive;
+    font-size: 1.75rem; /* Adjust size as needed */
+    color: #336699; /* A classy, somewhat playful color */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out, text-shadow .3s;
+    display: inline-block; /* Required for transform */
+    transform: rotate(-20deg); /* Rotate the text by 30 degrees */
+}
+
+.navbar-brand:hover {
+    color: #264d73; /* Slightly darker on hover for interactivity */
+    transform: rotate(0deg) scale(1.1); /* Maintain rotation and slightly scale up on hover */
+    text-shadow: 2px 2px 2px #FFF;
+    transition: transform .3s, text-shadow .3s;
+}
+
+
+.jumbotron {
+    border-bottom: 3px solid black;
+}
+
+
+/* style for privacy policy */
+.privacy-policy-container {
+    color: #333; /* Dark gray text */
+    background-color: #f8f8f8; /* Light gray background */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd; /* Light gray border */
+    max-width: 800px; /* Adjust as needed */
+    margin: 20px auto; /* Centering the container */
+}
+
+.privacy-policy-container h1, .privacy-policy-container h2 {
+    color: #222; /* Slightly darker gray for headings */
+}
+
+.privacy-policy-container p {
+    color: #555; /* Lighter gray for paragraph text */
+    line-height: 1.6; /* Improve readability */
+}
+
+.privacy-policy-container a {
+    color: #007bff; /* Standard link color for contrast */
+    text-decoration: none;
+}
+
+.privacy-policy-container a:hover {
+    text-decoration: underline;
+}
+
+
+/* pagination style */
+.pagination-container {
+    text-align: center;
+    color: black;
+    font-size: 1.1rem;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-container .page-link {
+    color: #fff; /* White text */
+    background-color: #495057; /* Dark gray background */
+    border: 1px solid #495057; /* Border color same as background */
+    padding: 8px 16px;
+    margin: 0 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    /* Fixed width for equal sizing */
+    display: inline-block;
+    width: 100px; /* Adjust as needed */
+    text-align: center;
+}
+
+.pagination-container .page-link:hover {
+    background-color: #0D6EFD; /* Blue background on hover */
+    border-color: #0D6EFD; /* Blue border on hover */
+}
+
+.pagination-container .page-link:disabled,
+.pagination-container .page-link.disabled {
+    color: #aaa;
+    cursor: not-allowed;
+    background-color: #f5f5f5;
+    border-color: #eee;
+}

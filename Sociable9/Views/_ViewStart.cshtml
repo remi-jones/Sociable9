@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "_Layout";
+    var admin = false;
+    if (Context.User.Identity.IsAuthenticated)
+    {
+        admin = Context.User.IsInRole("Admin");
+    }
+
+    ViewData["Admin"] = admin;
+
+    var user = false;
+    if (Context.User.Identity.IsAuthenticated)
+    {
+        user = true;
+    }
+
+    ViewData["User"] = user;
+}
