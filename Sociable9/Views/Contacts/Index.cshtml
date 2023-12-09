@@ -6,4 +6,6 @@
     var user = ViewData["User"] as bool? ?? false;
 }
 
+@* _ContactList partial is where the contacts are actually displayed *@
+@* using partial so home index and contacts index can share *@
 <partial name="_ContactList" model="@Model" />
