@@ -1,20 +1,31 @@
 ﻿@model PaginatedList<Sociable9.Models.Contact>
+@* PaginatedList for pages *@
 
 @{
+    // need to know if this is the contacts or home controller
     var controllerName = ViewContext.RouteData.Values["controller"].ToString();
+
+    // for displaying parameter names
     var dummyContact = new Sociable9.Models.Contact();
+
+    // pagination data
     int currentPageSize = ViewData["CurrentPageSize"] as int? ?? 5;
     ViewData["Title"] = "Index";
+
+    // user info
     var user = ViewData["user"] as bool? ?? false;
     var admin = ViewData["admin"] as bool? ?? false;
+
+    // how many results (if any) are returned
     var count = ViewData["count"] as int? ?? 0;
 }
 
 
 @if (user && count > 0)
 {
+    @* using flexgrid to show the search, create new button, sorting options, and number of items per page in single row above contacts *@
     <div class="row mb-3">
-        <!-- Search Function -->
+        @* Search *@
         <div class="col-md-4 mb-2 mt-2">
             @using (Html.BeginForm("Index", controllerName, FormMethod.Get, new { @class = "search-form" }))
             {
@@ -23,15 +34,15 @@
             }
         </div>
 
-        <!-- Create New Button -->
+        @* Create New Button *@
         <div class="col-md-4 justify-content-center text-center d-flex align-items-stretch mb-2 mt-2">
             <a asp-controller="Contacts" asp-action="Create" class="btn btn-success w-50 btn-vertical-center">Create New</a>
         </div>
 
-        <!-- Sorting and Items Per Page -->
+        @* Sorting and Items Per Page (share the right column) *@
         <div class="col-md-4 mb-2 mt-2">
             <div class="d-flex align-items-center justify-content-between" style="height: 100%;">
-                <!-- Sorting Dropdown -->
+                @* Sorting Dropdown (3/4 of the column) *@
                 <div class="d-flex align-items-center" style="flex-grow: 3; height: 100%">
                     <div class="dropdown" style="height: 100%;">
                         <button class="btn btn-primary dropdown-toggle" type="button" id="sortingDropdown" data-bs-toggle="dropdown" aria-expanded="false"
@@ -39,7 +50,7 @@
                             Sort By
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="sortingDropdown">
-                            @* Sorting options *@
+                            @* Sorting options : info sent to controller to determine order of items *@
                             <li><a class="dropdown-item" href="@Url.Action("Index", new { sortOrder = ViewBag.FirstNameSortParm, currentFilter = ViewBag.CurrentFilter, pageSize = currentPageSize })">First Name</a></li>
                             <li><a class="dropdown-item" href="@Url.Action("Index", new { sortOrder = ViewBag.LastNameSortParm, currentFilter = ViewBag.CurrentFilter, pageSize = currentPageSize })">Last Name</a></li>
                             <li><a class="dropdown-item" href="@Url.Action("Index", new { sortOrder = ViewBag.AddressSortParm, currentFilter = ViewBag.CurrentFilter, pageSize = currentPageSize })">Address</a></li>
@@ -51,6 +62,7 @@
                             <li><a class="dropdown-item" href="@Url.Action("Index", new { sortOrder = ViewBag.CreationDateSortParm, currentFilter = ViewBag.CurrentFilter, pageSize = currentPageSize })">Creation Date</a></li>
                             @if (admin)
                             {
+                                @* admin can sort by username *@
                                 <li><a class="dropdown-item" href="@Url.Action("Index", new { sortOrder = ViewBag.UsernameSortParm, currentFilter = ViewBag.CurrentFilter })">Username</a></li>
                             }
                             <li><a class="dropdown-item" href="@Url.Action("Index", new { sortOrder = ViewBag.CategorySortParm, currentFilter = ViewBag.CurrentFilter })">Category</a></li>
@@ -61,7 +73,7 @@
                     </div>
                 </div>
 
-                <!-- Items Per Page Dropdown -->
+                @* Items Per Page Dropdown (remaining 1/4 of column) *@
                 <div class="d-flex align-items-center justify-content-end" style="flex-grow: 1;">
                     @using (Html.BeginForm("Index", controllerName, FormMethod.Get, new { @class = "form-inline" }))
                     {
@@ -71,6 +83,7 @@
                             <form class="form-inline">
                             Items per page:
                             <select name="pageSize" onchange="this.form.submit();" class="form-control ml-2">
+                                @* following logic is for leaving the last selected page size as the default field *@
                                 @if (currentPageSize == 5)
                                 {
                                     <option value="5" selected>5</option>
@@ -117,7 +130,7 @@
 
     
 
-    <!-- Start of Bootstrap Card Layout -->
+    @* using bootstrap cards for contacts *@
     <div class="row">
         @foreach (var item in Model)
         {
@@ -130,14 +143,19 @@
                         <p class="card-text">
                             <strong>Address: </strong>@Html.DisplayFor(modelItem => item.Address), @Html.DisplayFor(modelItem => item.Town)
                             @Html.DisplayFor(modelItem => item.Province), @Html.DisplayFor(modelItem => item.PostalCode) <br />
+                            @* displaying address as 1 line (address + town + province + postal) *@
+
                             @* Town: @Html.DisplayFor(modelItem => item.Town)<br> 
                             Province: @Html.DisplayFor(modelItem => item.Province)<br>
                             Postal Code: @Html.DisplayFor(modelItem => item.PostalCode)<br> *@
+
+                            @* other fields *@
                             <strong>Phone Number: </strong> @Html.DisplayFor(modelItem => item.PhoneNumber)<br>
                             <strong>Email: </strong> @Html.DisplayFor(modelItem => item.Email)<br>
                             <strong>Creation Date: </strong> @Html.DisplayFor(modelItem => item.CreationDate)<br>
                             @if (admin)
                             {
+                                @* admin can see username *@
                                 <span><strong>Username: </strong> @Html.DisplayFor(modelItem => item.Username)</span>
 
                                 <br>
@@ -154,14 +172,19 @@
             </div>
         }
     </div>
+
+    @* pages (current page info and next/prev page buttons) *@
     <div class="pagination-container">
         @{
             var routeValues = new RouteValueDictionary 
             {
+                // this information is used to preserve sorting, searching or page size parameters between loads
                 { "sortOrder", ViewBag.CurrentSort },
                 { "searchString", ViewBag.CurrentFilter },
-                { "pageSize", currentPageSize } // Include the current page size
+                { "pageSize", currentPageSize } 
             };
+
+            // if search result returns nothing
             @if (Model.TotalPages == 0)
             {
                 <p>No results !</p>
@@ -170,24 +193,27 @@
             {
                 @if (Model.HasPreviousPage)
                 {
-                    routeValues["pageNumber"] = Model.PageIndex - 1;
+                    routeValues["pageNumber"] = Model.PageIndex - 1; // saving data
+                    
+                    // button
                     @Html.ActionLink("Previous", "Index", routeValues, new { @class = "page-link" })
-                    // @Html.ActionLink("Previous", "Index", new { pageNumber = Model.PageIndex - 1, currentFilter = ViewBag.CurrentFilter }, new { @class = "page-link" })
                 }
 
+                // Page x of x message
                 <span>Page @(Model.PageIndex) of @Model.TotalPages</span>
 
                 @if (Model.HasNextPage)
                 {
-                    routeValues["pageNumber"] = Model.PageIndex + 1;
+                    routeValues["pageNumber"] = Model.PageIndex + 1; // saving data
+
+                    // button
                     @Html.ActionLink("Next", "Index", routeValues, new { @class = "page-link" })
-                    // @Html.ActionLink("Next", "Index", new { pageNumber = Model.PageIndex + 1, currentFilter = ViewBag.CurrentFilter }, new { @class = "page-link" })
                 }
             }
         }
     </div>
 }
-else if (user)
+else if (user) // user is logged in but has no contacts yet
 {
     <div class="text-center">
         <p>
