@@ -6,11 +6,12 @@
     var user = ViewData["User"] as bool? ?? false;
 }
 
+ @* displaying welcome information in home index  *@
 <div class="container mt-4">
     <div class="row">
-        <!-- Logo occupies 2 columns -->
+        @* Logo occupies 2 columns *@
         <div class="col-md-2">
-            <img src="~/media/logo_t.png" alt="Logo" class="img-fluid"> <!-- Make sure to replace with your logo path -->
+            <img src="~/media/logo_t.png" alt="Logo" class="img-fluid">
         </div>
         <div class="text-center col-md-10">
             <h1>Welcome to Sociable</h1>
@@ -75,6 +76,8 @@
         <br />
     </div>
     <section id="contacts">
+        @* _ContactList partial is where the contacts are actually displayed *@
+        @* using partial so home index and contacts index can share *@
         <partial name="_ContactList" model="@Model" />
     </section>
 }
