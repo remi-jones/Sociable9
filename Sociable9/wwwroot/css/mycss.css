@@ -4,6 +4,8 @@ body {
 }
 
 
+/* following is for the cards (contacts) */ 
+
 .card-custom, .card-custom .card-body {
     transition: transform .3s, background-color .3s;
     background-color: #dedddd !important;
@@ -26,7 +28,6 @@ body {
     background-color: #757272 !important;
 }
 
-
 .card-custom:hover {
     transform: scale(1.05);
     background-color: #cac7c7 !important; /* Dark grey on hover */
@@ -34,7 +35,7 @@ body {
 }
 
 
-
+/* for buttons on the cards */
 .card-custom:hover .btn-info, .jumbo-btn .btn-info:hover {
     background-color: #0DCAF0 !important;
 }
@@ -48,6 +49,7 @@ body {
     color: white;
 }
 
+/* applying logic for button colors to other buttons on website */
 .btn-primary {
     background-color: #495057 !important;
 }
@@ -56,6 +58,7 @@ body {
     background-color: #0D6EFD !important;
 }
 
+/* navigation buttons */
 .btn-nav {
     background-color: #F5F5DC !important;
 }
@@ -69,18 +72,18 @@ body {
 }
 
 
-/* search button */
+/* search button (for contacts) */
 .search-form {
     display: flex !important;
     height: 100% !important;
 }
 
 .search-form input, .search-form button {
-    flex-grow: 1 !important; /* Allows input and button to expand */
+    flex-grow: 1 !important;
 }
 
 .search-form button {
-    min-width: 100px !important; /* Adjust as needed */
+    min-width: 100px !important;
 }
 
 /* create new button */
@@ -88,55 +91,55 @@ body {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    height: 100% !important; /* Adjust as needed */
+    height: 100% !important;
 }
 
 .sort-message {
-    padding-left: 10px !important; /* Adjust spacing as needed */
+    padding-left: 10px !important;
     overflow: hidden !important;
-    white-space: normal !important; /* Allows text to wrap */
+    white-space: normal !important;
 }
 
 
 /* navbar */
 .navbar-custom {
-    background-color: #949090 !important; /* Example dark color, adjust as needed */
+    background-color: #949090 !important;
 }
 
 /* Navbar buttons with lighter background and dark text */
 .navbar-custom .nav-link {
     background-color: #f8f9fa !important; /* Light background for buttons */
-    color: #343a40; /* Dark text */
-    transition: box-shadow 0.3s, transform 0.3s; /* Smooth transition for hover effects */
-    border: 1px solid transparent; /* Border for inward shadow effect */
-    padding: .5rem 1rem; /* Adjust padding as needed */
+    color: #343a40; 
+    transition: box-shadow 0.3s, transform 0.3s; 
+    border: 1px solid transparent; /* inward shadow effect */
+    padding: .5rem 1rem; 
     margin-left: .3rem;
     margin-right: .3rem;
-    text-shadow: 0 0 1px transparent; /* Reserve space for bold text */
+    text-shadow: 0 0 1px transparent;
 }
 
 /* Hover effects for navbar buttons */
 .navbar-custom .nav-link:hover {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), inset 0 0 5px rgba(0, 0, 0, 0.8); /* Outer glow and inner shadow */
-    transform: translateY(-2px); /* Optional: slight upward lift */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), inset 0 0 5px rgba(0, 0, 0, 0.8); /* Outer glow */
+    transform: translateY(-2px); /* lil lift */
     font-weight: bold;
     transition: font-weight .1s;
-    text-shadow: 0 0 1px #343a40; /* Match the text color */
+    text-shadow: 0 0 1px #343a40;
 }
 
 .navbar-brand {
-    font-family: 'Lobster', cursive;
-    font-size: 1.75rem; /* Adjust size as needed */
-    color: #336699; /* A classy, somewhat playful color */
+    font-family: 'Lobster', cursive; /* classy but nice font :) */
+    font-size: 1.75rem; 
+    color: #336699; 
     transition: color 0.3s ease-in-out, transform 0.3s ease-in-out, text-shadow .3s;
-    display: inline-block; /* Required for transform */
-    transform: rotate(-20deg); /* Rotate the text by 30 degrees */
+    display: inline-block;
+    transform: rotate(-20deg); /* Rotate the text by -20 degrees (display slanted) */
 }
 
 .navbar-brand:hover {
     color: #264d73; /* Slightly darker on hover for interactivity */
-    transform: rotate(0deg) scale(1.1); /* Maintain rotation and slightly scale up on hover */
-    text-shadow: 2px 2px 2px #FFF;
+    transform: rotate(0deg) scale(1.1); /* align text straight on hover */
+    text-shadow: 2px 2px 2px #FFF; /* give text a light up effect (with white color)*/
     transition: transform .3s, text-shadow .3s;
 }
 
@@ -146,28 +149,28 @@ body {
 }
 
 
-/* style for privacy policy */
+/* style for privacy policy (gray on gray on gray xD) */
 .privacy-policy-container {
-    color: #333; /* Dark gray text */
-    background-color: #f8f8f8; /* Light gray background */
+    color: #333; 
+    background-color: #f8f8f8; 
     padding: 20px;
     border-radius: 8px;
-    border: 1px solid #ddd; /* Light gray border */
-    max-width: 800px; /* Adjust as needed */
+    border: 1px solid #ddd; 
+    max-width: 800px;
     margin: 20px auto; /* Centering the container */
 }
 
 .privacy-policy-container h1, .privacy-policy-container h2 {
-    color: #222; /* Slightly darker gray for headings */
+    color: #222; /* Slightly darker gray */
 }
 
 .privacy-policy-container p {
-    color: #555; /* Lighter gray for paragraph text */
-    line-height: 1.6; /* Improve readability */
+    color: #555; 
+    line-height: 1.6; /* easier to read */
 }
 
 .privacy-policy-container a {
-    color: #007bff; /* Standard link color for contrast */
+    color: #007bff;
     text-decoration: none;
 }
 
@@ -188,29 +191,64 @@ body {
 }
 
 .pagination-container .page-link {
-    color: #fff; /* White text */
-    background-color: #495057; /* Dark gray background */
-    border: 1px solid #495057; /* Border color same as background */
+    color: #fff; /* white text */
+    background-color: #495057; /* dark gray background */
+    border: 1px solid #495057; 
     padding: 8px 16px;
     margin: 0 10px;
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease, border-color 0.3s ease;
-    /* Fixed width for equal sizing */
+
     display: inline-block;
-    width: 100px; /* Adjust as needed */
+    /* Fixed width for equal sizing */
+    width: 100px;
     text-align: center;
 }
 
 .pagination-container .page-link:hover {
-    background-color: #0D6EFD; /* Blue background on hover */
-    border-color: #0D6EFD; /* Blue border on hover */
+    background-color: #0D6EFD; /* blue background on hover */
+    border-color: #0D6EFD; /* blue border on hover */
 }
 
+/* the following probably isnt necessary as the buttons don't show if there arent pages available but just in case */
 .pagination-container .page-link:disabled,
 .pagination-container .page-link.disabled {
     color: #aaa;
     cursor: not-allowed;
     background-color: #f5f5f5;
     border-color: #eee;
+}
+
+
+/* more modification to the jumbotron for categories */
+.jumbotron {
+    background-color: lightgrey; /* grey */
+    padding: 1rem 1rem; /* slightly taller */
+    text-align: center; /* name in middle */
+    margin-bottom: 10px;
+    border-radius: 15px; /* rounded corners */
+    width: 100%;
+}
+
+.jumbotron h3 {
+    border: 2px solid black; 
+    display: inline-block;
+    padding: 10px; 
+    margin: 0 auto;
+}
+
+
+/* fixing logo size for small screens */
+@media (max-width: 768px) {
+    .row > .col-md-2 {
+        text-align: center; /* align in center */
+    }
+
+    .col-md-2 img {
+        max-width: 250px; /* limit size */
+        height: auto; 
+        margin: 0 auto; 
+        display: block;
+    }
 }
