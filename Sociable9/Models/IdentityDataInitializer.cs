@@ -7,7 +7,7 @@ namespace Sociable9.Models
     // the class will create the admin user with the following information :
     // UserName : admin
     // Email : admin@sociable.com (will be verified automatically)
-    // password : Appleapplecak3!
+    // password : Dx9xo9xd!
     // the class will also create the Admin Role in the database
     // the class will also associate the admin user with the Admin Role.
     public class IdentityDataInitializer
@@ -39,7 +39,7 @@ namespace Sociable9.Models
 
             if (userManager.Users.All(u => u.UserName != adminUser.UserName))
             {
-                await userManager.CreateAsync(adminUser, "Appleapplecak3!");
+                await userManager.CreateAsync(adminUser, "Dx9xo9xd!");
             }
         }
 

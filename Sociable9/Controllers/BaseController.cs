@@ -7,6 +7,8 @@ using Elfie.Serialization;
 
 namespace Sociable9.Controllers
 {
+    // class BaseController : used to provide common logic to the ContactsController and HomeController
+    // since both classes display the contacts (index of both controllers)
     public class BaseController : Controller
     {
         protected readonly ApplicationDbContext _context;
@@ -38,6 +40,7 @@ namespace Sociable9.Controllers
             {
                 var searchTerms = searchString.Split(' ');
 
+                // verifying in each field for the presence of the search entries
                 foreach (var term in searchTerms)
                 {
                     contactsQuery = contactsQuery.Where(c => c.FirstName.Contains(term)
@@ -54,6 +57,7 @@ namespace Sociable9.Controllers
                 }
             }
 
+            // sorting logic (sortOrder determined in the cshtml files)
             switch (sortOrder)
             {
                 case "First name ascending":
@@ -133,13 +137,11 @@ namespace Sociable9.Controllers
             int actualPageSize = pageSize ?? 5;
             int actualPageNumber = pageNumber ?? 1;
 
+            // saving data
             ViewData["CurrentPageSize"] = actualPageSize;
-
-            
-
             ViewData["CurrentFilter"] = searchString;
 
-
+            // paginatedlist : contains the data displayed for a single page, along with page data (next, previous, etc.)
             return await PaginatedList<Contact>.CreateAsync(contactsQuery.AsNoTracking(), actualPageNumber, actualPageSize);
         }
     }

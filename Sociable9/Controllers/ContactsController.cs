@@ -20,7 +20,10 @@ namespace Sociable9.Controllers
 
         public async Task<IActionResult> Index(string sortOrder, string searchString, int? pageNumber, int? pageSize)
         {
+            // saving the sort
             ViewBag.CurrentSort = sortOrder;
+
+            // applying the sort based on the option selected
             ViewBag.FirstNameSortParm = sortOrder == "First name ascending" ? "First name descending" : "First name ascending";
             ViewBag.LastNameSortParm = sortOrder == "Last name ascending" ? "Last name descending" : "Last name ascending";
             ViewBag.AddressSortParm = sortOrder == "Address ascending" ? "Address descending" : "Address ascending";
@@ -33,7 +36,9 @@ namespace Sociable9.Controllers
             ViewBag.UsernameSortParm = sortOrder == "Username ascending" ? "Username descending" : "Username ascending";
             ViewBag.CategorySortParm = sortOrder == "Category ascending" ? "Category descending" : "Category ascending";
 
-            var username = User.Identity.Name; // Or however you get the current user
+            // getting current username
+            var username = User.Identity.Name;
+            // getting model (GetContacts defined in BaseController)
             var model = await GetContacts(sortOrder, searchString, pageNumber, pageSize, username);
             ViewData["Admin"] = false;
             ViewData["User"] = false;

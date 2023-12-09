@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sociable9.Data;
 
@@ -11,9 +12,11 @@ using Sociable9.Data;
 namespace Sociable9.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231209163614_modifyingSeedData")]
+    partial class modifyingSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -320,7 +323,7 @@ namespace Sociable9.Data.Migrations
                             ContactID = 1,
                             Address = "1234 Street",
                             CategoryID = 1,
-                            CreationDate = new DateTime(2023, 12, 9, 12, 37, 10, 841, DateTimeKind.Local).AddTicks(3770),
+                            CreationDate = new DateTime(2023, 12, 9, 12, 36, 13, 104, DateTimeKind.Local).AddTicks(6966),
                             Email = "john.doe@example.com",
                             FirstName = "John",
                             LastName = "Doe",
@@ -335,7 +338,7 @@ namespace Sociable9.Data.Migrations
                             ContactID = 2,
                             Address = "5678 Avenue",
                             CategoryID = 2,
-                            CreationDate = new DateTime(2023, 12, 9, 12, 37, 10, 841, DateTimeKind.Local).AddTicks(3819),
+                            CreationDate = new DateTime(2023, 12, 9, 12, 36, 13, 104, DateTimeKind.Local).AddTicks(7037),
                             Email = "jane.smith@example.com",
                             FirstName = "Jane",
                             LastName = "Smith",
@@ -350,7 +353,7 @@ namespace Sociable9.Data.Migrations
                             ContactID = 3,
                             Address = "5678 Avenue",
                             CategoryID = 2,
-                            CreationDate = new DateTime(2023, 12, 9, 12, 37, 10, 841, DateTimeKind.Local).AddTicks(3823),
+                            CreationDate = new DateTime(2023, 12, 9, 12, 36, 13, 104, DateTimeKind.Local).AddTicks(7041),
                             Email = "jenny.smith@example.com",
                             FirstName = "Jenny",
                             LastName = "Smith",
@@ -365,7 +368,7 @@ namespace Sociable9.Data.Migrations
                             ContactID = 4,
                             Address = "5678 Avenue",
                             CategoryID = 2,
-                            CreationDate = new DateTime(2023, 12, 9, 12, 37, 10, 841, DateTimeKind.Local).AddTicks(3826),
+                            CreationDate = new DateTime(2023, 12, 9, 12, 36, 13, 104, DateTimeKind.Local).AddTicks(7044),
                             Email = "jenny.smith@example.com",
                             FirstName = "Jenny",
                             LastName = "Smith",
@@ -380,7 +383,7 @@ namespace Sociable9.Data.Migrations
                             ContactID = 5,
                             Address = "5678 Avenue",
                             CategoryID = 2,
-                            CreationDate = new DateTime(2023, 12, 9, 12, 37, 10, 841, DateTimeKind.Local).AddTicks(3830),
+                            CreationDate = new DateTime(2023, 12, 9, 12, 36, 13, 104, DateTimeKind.Local).AddTicks(7048),
                             Email = "jenny.smith@example.com",
                             FirstName = "Jenny",
                             LastName = "Smith",
@@ -395,7 +398,7 @@ namespace Sociable9.Data.Migrations
                             ContactID = 6,
                             Address = "5678 Avenue",
                             CategoryID = 2,
-                            CreationDate = new DateTime(2023, 12, 9, 12, 37, 10, 841, DateTimeKind.Local).AddTicks(3833),
+                            CreationDate = new DateTime(2023, 12, 9, 12, 36, 13, 104, DateTimeKind.Local).AddTicks(7051),
                             Email = "jenny.smith@example.com",
                             FirstName = "Jenny",
                             LastName = "Smith",
@@ -410,7 +413,7 @@ namespace Sociable9.Data.Migrations
                             ContactID = 7,
                             Address = "5678 Avenue",
                             CategoryID = 2,
-                            CreationDate = new DateTime(2023, 12, 9, 12, 37, 10, 841, DateTimeKind.Local).AddTicks(3836),
+                            CreationDate = new DateTime(2023, 12, 9, 12, 36, 13, 104, DateTimeKind.Local).AddTicks(7054),
                             Email = "jenny.smith@example.com",
                             FirstName = "Jenny",
                             LastName = "Smith",
@@ -425,7 +428,7 @@ namespace Sociable9.Data.Migrations
                             ContactID = 8,
                             Address = "5678 Avenue",
                             CategoryID = 2,
-                            CreationDate = new DateTime(2023, 12, 9, 12, 37, 10, 841, DateTimeKind.Local).AddTicks(3839),
+                            CreationDate = new DateTime(2023, 12, 9, 12, 36, 13, 104, DateTimeKind.Local).AddTicks(7057),
                             Email = "jenny.smith@example.com",
                             FirstName = "Jenny",
                             LastName = "Smith",
@@ -440,7 +443,7 @@ namespace Sociable9.Data.Migrations
                             ContactID = 9,
                             Address = "5678 Avenue",
                             CategoryID = 2,
-                            CreationDate = new DateTime(2023, 12, 9, 12, 37, 10, 841, DateTimeKind.Local).AddTicks(3842),
+                            CreationDate = new DateTime(2023, 12, 9, 12, 36, 13, 104, DateTimeKind.Local).AddTicks(7060),
                             Email = "jenny.smith@example.com",
                             FirstName = "Jenny",
                             LastName = "Smith",
@@ -455,7 +458,7 @@ namespace Sociable9.Data.Migrations
                             ContactID = 10,
                             Address = "5678 Avenue",
                             CategoryID = 2,
-                            CreationDate = new DateTime(2023, 12, 9, 12, 37, 10, 841, DateTimeKind.Local).AddTicks(3845),
+                            CreationDate = new DateTime(2023, 12, 9, 12, 36, 13, 104, DateTimeKind.Local).AddTicks(7063),
                             Email = "jenny.smith@example.com",
                             FirstName = "Jenny",
                             LastName = "Smith",
@@ -470,7 +473,7 @@ namespace Sociable9.Data.Migrations
                             ContactID = 11,
                             Address = "5678 Avenue",
                             CategoryID = 2,
-                            CreationDate = new DateTime(2023, 12, 9, 12, 37, 10, 841, DateTimeKind.Local).AddTicks(3848),
+                            CreationDate = new DateTime(2023, 12, 9, 12, 36, 13, 104, DateTimeKind.Local).AddTicks(7066),
                             Email = "jenny.smith@example.com",
                             FirstName = "Jenny",
                             LastName = "Smith",
@@ -485,7 +488,7 @@ namespace Sociable9.Data.Migrations
                             ContactID = 12,
                             Address = "5678 Avenue",
                             CategoryID = 2,
-                            CreationDate = new DateTime(2023, 12, 9, 12, 37, 10, 841, DateTimeKind.Local).AddTicks(3851),
+                            CreationDate = new DateTime(2023, 12, 9, 12, 36, 13, 104, DateTimeKind.Local).AddTicks(7069),
                             Email = "jenny.smith@example.com",
                             FirstName = "Jenny",
                             LastName = "Smith",
