@@ -2,6 +2,9 @@
 
 namespace Sociable9.Models
 {
+    // PaginatedList class : used to return the model data within a list.
+    // based on the number of items specified per page, the number of pages is calculated
+    // based on the current page (PageIndex), we determine if there are previous or next pages to return
     public class PaginatedList<T> : List<T>
     {
         public int PageIndex { get; private set; }
